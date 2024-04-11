@@ -1,0 +1,13 @@
+{% include 'head.html' %}
+    <h3 class="center">{{t[1]}}</h3>
+    <main class="col-3">
+        {% for i in h %}
+        <section>
+            <a href="/ibud/{{i['id']}}">
+                <img src="{{ url_for('static', filename='images/' + i['mynd']) }}" alt="">
+                <h5>{{i['address']}}. Verð: {{i['verd']}}</h5>
+            </a>
+        </section>  
+        {% endfor %}
+    </main>
+{% include 'foot.html' %}

@@ -1,0 +1,91 @@
+/* https://www.w3.org/Style/Examples/007/slideshow.en.html#top */
+
+.slideset2 h3{
+    text-align: center;
+}
+
+.slideset2 { 
+    position: relative;
+    height: 8rem;
+    overflow: hidden; 
+    /*border: 1px solid white;*/
+    width: 20rem;
+}
+
+.slideset2 > * {
+    position: absolute; 
+    top: 100%; left: 0;
+    animation: 12s autoplay2 infinite ease-in-out;
+
+}
+  /*  The 'ease-in-out' determines the acceleration of the movement. It is one of a predefined set of keywords. 'Ease-in-out' means that the movement starts slowly, accelerates, and finally slows down again. Which is what looks best for our purpose.
+  The animation moves the slide from below the bottom of the container to the top in half a second (4% of 12 seconds). The position remains unchanged until one third into the animation. Then the slide moves up in half a second again until it is completely above the container. It remains there until the animation starts over:
+  */
+  @keyframes autoplay2 {
+    0% {top: 100%}
+    4% {top: 0%}
+    33.33% {top: 0%}
+    37.33% {top: -100%}
+    100% {top: -100%}
+  }
+/*  As before, each of the three slides has to start the animation at a different time: */
+
+  .slideset2 > *:nth-child(1) {animation-delay: 0s}
+  .slideset2 > *:nth-child(2) {animation-delay: 4s}
+  .slideset2 > *:nth-child(3) {animation-delay: 8s}
+
+.sliderbox {
+  display: grid;
+  justify-content: center;
+}
+
+/******************** Animate.style ****************/
+@keyframes zoomIn {
+    from {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .zoomIn {
+    animation-name: zoomIn;
+    animation-duration: 4s;
+  }
+  
+  @keyframes fadeInRightBig {
+    from {
+      opacity: 0;
+      transform: translate3d(2000px, 0, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .animate__fadeInRightBig {
+    animation-name: fadeInRightBig;
+    animation-duration: 2s;
+  }
+  
+  /* landscape mobile */
+  @media (min-width: 36rem) {
+    .slideset2 { 
+      height: 5rem;
+      width: 33rem;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .slideset2 { 
+      width: 40rem;
+      height: 3rem;
+      margin: auto;
+    }
+  }

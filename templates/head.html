@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t[0] }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.min.css') }}">
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="toggle" class="menuInput">
+        <label for="toggle" class="menuLabel"><span class="icon-Peace"></span></label>
+        <div class="topmenu">
+        {% for i in m %} 
+            <a href={{i[0]}}>{{ i[1] }}</a> <!-- 0 = flokkur/<> || 1 = íbúðartegund-->
+        {% endfor %}
+    </nav>
+    <header class="landing">
+        <section class="right">
+        <img src="{{url_for('static', filename='images/jinja-logo.png')}}" title="{{ t }}">
+        </section>
+        <section>
+            <h1>{{ t[0] }}</h1>
+        </section>
+    </header>
+
