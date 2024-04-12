@@ -69,10 +69,8 @@ hus =  [
     ]
 
 @app.route("/")
-@app.route("/index")
 def index():
-    return "Halló heimur í vercel"
-    #return render_template("index.html", t=title, m=menu, h=hus)
+    return render_template("index.html", t=title, m=menu, h=hus)
 
 @app.route("/ibud/<id>")
 def ibud(id):
