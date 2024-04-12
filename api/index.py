@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 app = Flask(__name__)
-'''
+
 title = ('Fasteignahúsið',
          'Frábært úrval fasteigna',
          'Fasteignir á góðu verði',
@@ -67,14 +67,14 @@ hus =  [
             "flokkur":"fjolbyli"
         }
     ]
-'''
+
 @app.route("/")
 @app.route("/index")
 def index():
     return "Halló heimur í vercel"
     #return render_template("index.html", t=title, m=menu, h=hus)
 
-'''@app.route("/ibud/<id>")
+@app.route("/ibud/<id>")
 def ibud(id):
    valinibud = hus[int(id)] # route/id > ibud (id): vainibud = hus (id) listinn tekinn saman
    # > færibreytan v send í ibud.html 
@@ -88,7 +88,6 @@ def flokkur(fl): # f = fl -> f og h send í flokkur.html ásamt t og m
 @app.errorhandler(404)
 def pagenotfound(error):
     return render_template("404.html", t=title, m=menu), 404
-'''
 
 if __name__ == '__main__':
   app.run() 
